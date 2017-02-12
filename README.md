@@ -1,24 +1,45 @@
-# README
+# KnightHacks Website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Website screenshot](./screenshot.png)
 
-Things you may want to cover:
+The KnightHacks website is a Rails 5 app.
 
-* Ruby version
+### Setup
 
-* System dependencies
+1. Get the code.
 
-* Configuration
+  ```sh
+  git clone git@github.com:knighthacks/knighthacks-web.git
+  ```
 
-* Database creation
+2. Set up your environment.
+  ```sh
+  bin/setup
+  ```
 
-* Database initialization
+3. Follow the instructions in `.env` to set up environment variables.
 
-* How to run the test suite
+4. Install and start [Redis].
 
-* Services (job queues, cache servers, search engines, etc.)
+  ```sh
+  brew install redis
+  # Pay attention to the output, the startup command may differ.
+  brew services start redis
+  ```
 
-* Deployment instructions
+5. Start [Foreman] (or any [Procfile]-based runner).
+  ```sh
+  bin/foreman start
+  ```
 
-* ...
+[Redis]: https://redis.io
+[Foreman]: https://github.com/ddollar/foreman
+[Procfile]: https://devcenter.heroku.com/articles/procfile
+
+### Ongoing
+
+* Run RuboCop before committing. There's a comprehensive style guide for this project.
+
+  ```
+  rubocop
+  ```
