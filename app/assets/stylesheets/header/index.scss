@@ -1,0 +1,13 @@
+@import "../layouts";
+
+header[role="main"] {
+  background: image-url("space-bg.png");
+  background-size: cover;
+  padding-top: $section-gutter;
+  padding-bottom: $section-gutter;
+  color: white;
+
+  img {
+    width: 225px;
+  }
+}

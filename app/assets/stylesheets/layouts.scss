@@ -1,0 +1,14 @@
+$site-width: 1000px;
+$section-gutter: 40px;
+$radius: 3px;
+
+.container {
+  max-width: $site-width;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+body {
+  font-size: 22px;
+  font-family: "Muli";
+}

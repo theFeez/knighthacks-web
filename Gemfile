@@ -6,11 +6,15 @@ gem "pg", "~> 0.18"
 gem "puma", "~> 3.0"
 
 gem "autoprefixer-rails"
+gem "normalize-rails"
 gem "pry-rails"
 gem "recipient_interceptor"
 gem "sass-rails", "~> 5.0"
 gem "sidekiq"
 gem "uglifier", ">= 1.3.0"
+
+gem "momentjs-rails"
+gem "react-rails"
 
 group :development, :test do
   gem "bullet"

@@ -17,11 +17,11 @@ class Countdown
     absolute_seconds % 60
   end
 
-  private
-
   def hackathon_starts_at
     Time.zone.parse(HACKATHON_STARTS_AT)
   end
+
+  private
 
   def absolute_seconds
     (hackathon_starts_at - Time.zone.now).ceil

@@ -43,6 +43,10 @@ GEM
     arel (7.1.4)
     autoprefixer-rails (6.6.1)
       execjs
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     builder (3.2.3)
     bullet (5.5.0)
       activesupport (>= 3.0.0)
@@ -59,6 +63,7 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     coderay (1.1.1)
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
     connection_pool (2.2.1)
     debug_inspector (0.0.2)
@@ -97,9 +102,12 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    momentjs-rails (2.17.1)
+      railties (>= 3.1)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    normalize-rails (3.0.3)
     pg (0.19.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -141,6 +149,13 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+    react-rails (1.10.0)
+      babel-transpiler (>= 0.7.0)
+      coffee-script-source (~> 1.8)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     recipient_interceptor (0.1.2)
       mail
     redis (3.3.3)
@@ -220,11 +235,14 @@ DEPENDENCIES
   foreman
   letter_opener
   listen (~> 3.0.5)
+  momentjs-rails
+  normalize-rails
   pg (~> 0.18)
   pry
   pry-rails
   puma (~> 3.0)
   rails (~> 5.0.1)
+  react-rails
   recipient_interceptor
   rspec-mocks
   rspec-rails

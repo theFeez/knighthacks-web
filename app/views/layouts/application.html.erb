@@ -4,10 +4,22 @@
     <title>KnightHacks</title>
     <%= csrf_meta_tags %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Muli|Source+Code+Pro" %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
   <body>
+    <header role="main" class="<%= content_for(:header_class) %>">
+      <div class="container">
+        <%= link_to image_tag("logo.png"), "/" %>
+
+        <%= content_for(:header_content) %>
+      </div>
+    </header>
+
     <%= yield %>
+
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>

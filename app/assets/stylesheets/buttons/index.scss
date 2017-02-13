@@ -1,0 +1,19 @@
+@import "../colors";
+@import "../layouts";
+
+.button {
+  background: $theme;
+  border-radius: $radius;
+  display: inline-block;
+  min-width: 120px;
+  padding: 13px;
+  font-size: 1.2rem;
+  text-align: center;
+  color: white;
+  text-decoration: none;  
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

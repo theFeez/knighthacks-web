@@ -1,0 +1,34 @@
+@import "../colors";
+@import "../layouts";
+
+.countdown {
+  font-family: "Source Code Pro";
+  font-size: 35px;
+  margin: $section-gutter auto;
+  text-align: center;
+
+  .prompt {
+    color: rgba(255, 255, 255, 0.5);
+    user-select: none;
+    cursor: default;
+  }
+
+  .command {
+    color: $theme;
+  }
+
+  @media (max-device-width: 550px) {
+    .prompt, .command {
+      display: none;
+    }
+  }
+
+  .countdown-output {
+    margin: $section-gutter;
+
+    p {
+      white-space: pre;
+      margin: 0;
+    }
+  }
+}

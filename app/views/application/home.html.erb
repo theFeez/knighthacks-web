@@ -1,0 +1,10 @@
+<% content_for(:header_class) { "home" } %>
+<% content_for(:header_content) do %>
+  <div class="countdown">
+    <span class="prompt">$ </span>
+    <span class="command">curl knighthacks.org/countdown</span>
+    <%= react_component("Countdown", hackathonStartsAt: @countdown.hackathon_starts_at) %>
+  </div>
+
+  <a class="button" href="#">Apply</a>
+<% end %>

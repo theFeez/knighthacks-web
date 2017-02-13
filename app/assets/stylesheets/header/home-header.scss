@@ -1,0 +1,28 @@
+@import "../layouts";
+@import "../colors";
+
+header[role="main"].home {
+  $stripe-clearance: 200px;
+
+  position: relative;
+  padding-bottom: $stripe-clearance;
+  margin-bottom: -$stripe-clearance;
+
+  &:before {
+    position: absolute;
+    content: "";
+    display: block;
+    background: white;
+    transform: skewY(-7deg);
+    width: 100%;
+    height: 70%;
+    top: calc(100% - #{$stripe-clearance} - 25px);
+  }
+
+  .button {
+    display: block;
+    margin: 0 auto;
+    width: 180px;
+    position: relative;
+  }
+}
