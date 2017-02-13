@@ -3,6 +3,7 @@
 header[role="main"] {
   background: image-url("space-bg.png");
   background-size: cover;
+  background-attachment: fixed;
   padding-top: $section-gutter;
   padding-bottom: $section-gutter;
   color: white;
