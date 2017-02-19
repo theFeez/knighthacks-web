@@ -32,9 +32,15 @@ The KnightHacks website is a Rails 5 app.
   bin/foreman start
   ```
 
+6. Start [Guard] for live reloading.
+  ```sh
+  bin/guard
+  ```
+
 [Redis]: https://redis.io
 [Foreman]: https://github.com/ddollar/foreman
 [Procfile]: https://devcenter.heroku.com/articles/procfile
+[Guard]: https://github.com/guard/guard
 
 ### Ongoing
 
