@@ -11,6 +11,10 @@
     <% end %>
 
     <p class="save_status">Saved.</p>
+    <p class="save_reassurance">
+      Gotta run? No problem. We'll send an email to <%= @user.email %>
+      that'll let you pick up right where you left off.
+    </p>
   </nav>
 
   <%= simple_form_for(@user) do |f| %>

@@ -33,16 +33,33 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :full_name,
+      :additional_portfolio,
+      :additional_remarks,
+      :born_on,
       :email,
+      :event_expectations,
+      :expected_graduation,
+      :full_name,
+      :gender,
+      :github,
+      :interests,
+      :linkedin,
+      :major,
+      :number_of_hackathons,
       :phone,
+      :proud_project,
+      :race,
       :shirt_fit_sex,
       :shirt_fit_size,
-      :university_name,
-      :major,
+      :tech_stack,
+      :travel_accommodations_needed,
+      :traveling_from_city,
+      :traveling_to_city,
       :university_email,
-      :expected_graduation,
-      :born_on,
+      :university_name,
+      :website,
+      :why_mentor,
+      availability: [],
     )
   end
 end

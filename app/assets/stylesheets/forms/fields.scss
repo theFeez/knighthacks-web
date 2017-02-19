@@ -10,8 +10,8 @@
   }
 }
 
-.input.string, .input.email, .input.tel {
-  input {
+.input.string, .input.email, .input.tel, .input.text {
+  input, textarea {
     background: rgba(255, 255, 255, 0.15);
     border-radius: $radius;
     border: 1px solid white;
@@ -33,4 +33,26 @@
       color: rgba(255, 255, 255, 0.3);
     }
   }
+
+  textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+}
+
+.input.boolean, .input.check_boxes, .input.radio_buttons {
+  cursor: pointer;
+
+  input {
+    margin-right: 5px;
+  }
+
+  input, label {
+    cursor: pointer;
+  }
+}
+
+span.checkbox, span.radio {
+  display: block;
+  margin: 10px 0;
 }

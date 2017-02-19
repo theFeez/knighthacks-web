@@ -10,6 +10,12 @@ class RegistrationForm
     [
       RegistrationBasicInfoSection.new(user),
       RegistrationEducationSection.new(user),
+      RegistrationTravelSection.new(user),
+      RegistrationExperienceSection.new(user),
+      RegistrationWrapupSection.new(user),
+      RegistrationAvailabilitySection.new(user),
+      RegistrationMentorSection.new(user),
+      RegistrationDemographicsSection.new(user),
     ]
   end
 

@@ -42,8 +42,14 @@ header.apply {
     color: rgba(255, 255, 255, 0.8);
   }
 
+  .save_reassurance {
+    font-size: 0.7em;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
   .apply_sections {
     flex: 1;
+    margin-right: 20px;
   }
 
   form {
