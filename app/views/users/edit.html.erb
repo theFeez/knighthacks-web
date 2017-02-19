@@ -1,0 +1,20 @@
+<%= content_for(:header_logo) { "logo-bw.png" } %>
+<%= content_for(:body_class) { "page-apply" } %>
+<%= content_for(:header_class) { "apply" } %>
+
+<div class="container -small">
+  <header class="apply_header">
+    <h2>Apply</h2>
+
+    <span class="save_status">Saved.</span>
+  </header>
+
+  <nav class="apply_sections">
+    <%= registration_section_link(RegistrationBasicInfoSection.new(@user)) %>
+    <%= registration_section_link(RegistrationEducationSection.new(@user)) %>
+  </nav>
+</div>
+
+<div class="container -form">
+  <%= render "users/form_sections/#{@section}" %>
+</div>
