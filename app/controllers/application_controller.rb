@@ -3,5 +3,6 @@ class ApplicationController < ActionController::Base
 
   def home
     @countdown = Countdown.new
+    @user = User.new
   end
 end

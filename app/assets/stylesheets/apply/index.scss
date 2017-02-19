@@ -1,0 +1,29 @@
+@import "../colors";
+@import "../layouts";
+
+.apply {
+  color: white;
+  padding: $section-gutter 0;
+
+  .button {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.apply_initial {
+  position: relative;
+  padding: $section-gutter 0;
+  margin-top: 100px;
+
+  &:before {
+    background: $secondary;
+    content: "";
+    display: block;
+    height: 110%;
+    width: 100%;
+    position: absolute;
+    top: -2%;
+    transform: skewY(-7deg);
+  }
+}

@@ -9,20 +9,20 @@ header[role="main"].home {
   margin-bottom: -$stripe-clearance;
 
   &:before {
-    position: absolute;
+    background: white;
     content: "";
     display: block;
-    background: white;
+    height: 80%;
+    position: absolute;
+    top: calc(100% - #{$stripe-clearance} - 25px);
     transform: skewY(-7deg);
     width: 100%;
-    height: 70%;
-    top: calc(100% - #{$stripe-clearance} - 25px);
   }
 
   .button {
     display: block;
     margin: 0 auto;
-    width: 180px;
     position: relative;
+    width: 180px;
   }
 }

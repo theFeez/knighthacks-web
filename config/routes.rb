@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   get "countdown" => "countdowns#index"
 
+  resources :users
+
   mount Sidekiq::Web => "/sidekiq"
 end

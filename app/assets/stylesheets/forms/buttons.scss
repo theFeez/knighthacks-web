@@ -1,0 +1,12 @@
+@import "../colors";
+@import "../layouts";
+
+form {
+  .button {
+    appearance: none;
+    background: white;
+    border: none;
+    color: $secondary;
+    padding: 15px 20px;
+  }
+}

@@ -35,3 +35,18 @@
     </p>
   </article>
 </div>
+
+<div class="apply apply_initial">
+  <div class="container -form">
+    <h2>Apply</h2>
+
+    <%= simple_form_for @user do |f| %>
+      <%= f.input :full_name %>
+      <%= f.input :email, label: "Preferred e-mail", as: :email %>
+      <%= f.input :phone, label: "Preferred phone number", as: :string %>
+      <%= f.input :shirt_size, as: :shirt_size %>
+
+      <%= f.button :submit, "Next" %>
+    <% end %>
+  </div>
+</div>
