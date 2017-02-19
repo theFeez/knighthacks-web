@@ -2,13 +2,39 @@ $site-width: 1000px;
 $section-gutter: 40px;
 $radius: 3px;
 
+body {
+  font-size: 22px;
+  font-family: "Muli";
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 1.6em;
+  text-align: center;
+}
+
 .container {
   max-width: $site-width;
   padding: 0 20px;
   margin: 0 auto;
-}
+  position: relative;
 
-body {
-  font-size: 22px;
-  font-family: "Muli";
+  &.-small {
+    max-width: $site-width * 0.8;
+
+    p {
+      max-width: $site-width * 0.7;
+    }
+  }
+
+  p {
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
 }

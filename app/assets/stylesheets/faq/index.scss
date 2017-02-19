@@ -1,0 +1,15 @@
+@import "../layouts";
+
+.faq {
+  margin-top: $section-gutter !important;
+  margin-bottom: $section-gutter !important;
+
+  #timeline {
+    width: 100%;
+    max-width: 800px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
