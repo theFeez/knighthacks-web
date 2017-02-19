@@ -38,3 +38,15 @@ h2 {
     line-height: 1.7;
   }
 }
+
+article {
+  padding-bottom: 100px;
+
+  &:last-child {
+    padding-bottom: 0px;
+  }
+
+  .muted {
+    opacity: 0.5;
+  }
+}
