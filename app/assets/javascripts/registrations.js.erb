@@ -1,0 +1,23 @@
+<% environment.context_class.instance_eval { include Rails.application.routes.url_helpers } %>
+
+(function () {
+  if (document.body.className.indexOf('apply') === -1) {
+    return
+  }
+
+  const form = document.querySelector('form')
+  const userId = form.id.split('_')[2]
+
+  form.addEventListener('change', function () {
+    const formData = new FormData(form)
+
+    fetch("<%= users_path %>/" + userId, {
+      method: "PATCH",
+      body: formData,
+      credentials: 'same-origin',
+      headers: new Headers({
+        "Accept": "application/json"
+      })
+    })
+  })
+})()

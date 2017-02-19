@@ -2,19 +2,36 @@
 <%= content_for(:body_class) { "page-apply" } %>
 <%= content_for(:header_class) { "apply" } %>
 
-<div class="container -small">
-  <header class="apply_header">
+<div class="container -small form_section">
+  <nav class="apply_sections">
     <h2>Apply</h2>
 
-    <span class="save_status">Saved.</span>
-  </header>
+    <% @registration_form.sections.each do |section| %>
+      <%= registration_section_link(section) %>
+    <% end %>
 
-  <nav class="apply_sections">
-    <%= registration_section_link(RegistrationBasicInfoSection.new(@user)) %>
-    <%= registration_section_link(RegistrationEducationSection.new(@user)) %>
+    <p class="save_status">Saved.</p>
   </nav>
-</div>
 
-<div class="container -form">
-  <%= render "users/form_sections/#{@section}" %>
+  <%= simple_form_for(@user) do |f| %>
+    <% @registration_form.current_section.attributes.each do |attribute| %>
+      <% if attribute.is_a? Array %>
+        <%= f.input attribute[0], attribute[1]  %>
+      <% else %>
+        <%= f.input attribute %>
+      <% end %>
+    <% end %>
+
+    <div class="back_forward_buttons">
+      <% if @registration_form.previous_section %>
+        <%= link_to "Back", apply_path(@registration_form.previous_section.key), class: "button" %>
+      <% end %>
+
+      <% if @registration_form.next_section %>
+        <%= link_to apply_path(@registration_form.next_section.key), class: "button" do %>
+          Next: <strong><%= @registration_form.next_section.name %></strong>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

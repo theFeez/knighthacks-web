@@ -4,6 +4,12 @@
 .page-apply {
   background: $secondary;
   color: white;
+
+  form {
+    @media (min-width: 768px) {
+      margin-bottom: 100px;
+    }
+  }
 }
 
 header.apply {
@@ -20,35 +26,42 @@ header.apply {
   }
 }
 
-header.apply_header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-top: -40px;
+.form_section {
+  @media (min-width: 768px) {
+    display: flex;
+  }
 
   h2 {
     text-align: left;
+    margin-top: 0;
   }
 
   .save_status {
     font-size: 0.8em;
+    margin-top: 20px;
     color: rgba(255, 255, 255, 0.8);
+  }
+
+  .apply_sections {
+    flex: 1;
+  }
+
+  form {
+    flex: 2;
   }
 }
 
 .apply_sections {
-  display: flex;
-  justify-content: center;
   margin-bottom: 25px;
+  margin-left: 20px;
 
   a {
     color: white;
     text-decoration: none;
-    flex: 1;
-    text-align: center;
     display: block;
-    padding-bottom: 20px;
-    background-position: bottom center;
+    padding: 5px;
+    padding-left: 30px;
+    background-position: left center;
     background-repeat: no-repeat;
     opacity: 0.5;
     transition: opacity 0.2s ease;
@@ -85,5 +98,17 @@ header.apply_header {
     position: absolute;
     top: -2%;
     transform: skewY(-7deg);
+  }
+}
+
+.back_forward_buttons {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(transparent, $secondary);
+  padding-bottom: 20px;
+
+  .button {
+    background: white;
+    color: $secondary;
   }
 }

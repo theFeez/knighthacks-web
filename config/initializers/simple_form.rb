@@ -23,5 +23,5 @@ SimpleForm.setup do |config|
   config.default_wrapper = :default
   config.error_notification_class = "error_notification"
   config.error_notification_tag = :div
-  config.input_mappings = { /shirt_size/ => :string }
+  config.input_mappings = { /citext/ => :email }
 end

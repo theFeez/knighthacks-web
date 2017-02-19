@@ -6,10 +6,22 @@ class RegistrationSection
   end
 
   def completed?
-    attributes.all? { |attribute| user[attribute].present? }
+    flat_attributes.all? { |attribute| user.send(attribute).present? }
   end
 
   def attributes
     []
+  end
+
+  protected
+
+  def flat_attributes
+    attributes.map do |attribute|
+      if attribute.is_a? Array
+        attribute[0]
+      else
+        attribute
+      end
+    end
   end
 end

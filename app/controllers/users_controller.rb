@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: %i(edit)
+  skip_before_action :verify_authenticity_token, only: %i(update)
+  before_action :find_user, only: %i(edit update)
 
   def create
     @user = User.new(user_params)
@@ -13,7 +14,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @section = params[:section]
+    @registration_form = RegistrationForm.new(@user, params[:section])
+  end
+
+  def update
+    if @user.update(user_params)
+      render json: @user
+    else
+      render json: @user.errors.details, status: :unprocessable_entity
+    end
   end
 
   private
@@ -29,6 +38,11 @@ class UsersController < ApplicationController
       :phone,
       :shirt_fit_sex,
       :shirt_fit_size,
+      :university_name,
+      :major,
+      :university_email,
+      :expected_graduation,
+      :born_on,
     )
   end
 end
