@@ -7,16 +7,16 @@ class RegistrationForm
   end
 
   def sections
-    [
-      RegistrationBasicInfoSection.new(user),
-      RegistrationEducationSection.new(user),
-      RegistrationTravelSection.new(user),
-      RegistrationExperienceSection.new(user),
-      RegistrationWrapupSection.new(user),
-      RegistrationAvailabilitySection.new(user),
-      RegistrationMentorSection.new(user),
-      RegistrationDemographicsSection.new(user),
+    base = [
+      RegistrationBasicInfoSection,
+      RegistrationRolesSection,
     ]
+
+    user.roles.each do |role|
+      base += send("#{role}_sections")
+    end
+
+    base.uniq.map { |klass| klass.new(user) }
   end
 
   def previous_section
@@ -32,6 +32,28 @@ class RegistrationForm
   end
 
   private
+
+  def hacker_sections
+    [
+      RegistrationEducationSection,
+      RegistrationTravelSection,
+      RegistrationExperienceSection,
+      RegistrationWrapupSection,
+    ]
+  end
+
+  def mentor_sections
+    [
+      RegistrationMentorSection,
+      RegistrationAvailabilitySection,
+    ]
+  end
+
+  def volunteer_sections
+    [
+      RegistrationAvailabilitySection,
+    ]
+  end
 
   def section_from_key(key)
     sections.detect { |section| section.key == key }

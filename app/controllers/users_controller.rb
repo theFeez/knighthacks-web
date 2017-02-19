@@ -60,6 +60,7 @@ class UsersController < ApplicationController
       :website,
       :why_mentor,
       availability: [],
+      roles: [],
     )
   end
 end
