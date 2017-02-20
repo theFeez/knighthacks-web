@@ -40,6 +40,15 @@
   <div class="container -form">
     <h2>Apply</h2>
 
-    <%= render "users/form_sections/basic" %>
+    <% if current_user.persisted? %>
+      <div class="continue_application">
+        <p>Welcome back, <%= current_user.full_name %>!</p>
+        <p>Let's finish up the application you began earlier.</p>
+
+        <%= link_to "Continue", apply_redirect_path, class: "button" %>
+      </div>
+    <% else %>
+      <%= render "users/form_sections/basic" %>
+    <% end %>
   </div>
 </div>

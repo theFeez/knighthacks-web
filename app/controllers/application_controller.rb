@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
 
   def home
     @countdown = Countdown.new
-    @user = User.new
   end
+
+  private
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id]) || User.new
+  end
+  helper_method :current_user
 end

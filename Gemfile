@@ -7,6 +7,7 @@ gem "puma", "~> 3.0"
 
 gem "autoprefixer-rails"
 gem "normalize-rails"
+gem "jwt"
 gem "pry-rails"
 gem "recipient_interceptor"
 gem "sass-rails", "~> 5.0"

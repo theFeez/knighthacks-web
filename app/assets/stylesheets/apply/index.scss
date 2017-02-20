@@ -23,6 +23,8 @@ header.apply {
   .button {
     display: block;
     margin: 0 auto;
+    background: white;
+    color: $secondary;
   }
 }
 
@@ -104,6 +106,10 @@ header.apply {
     position: absolute;
     top: -2%;
     transform: skewY(-7deg);
+  }
+
+  .continue_application {
+    text-align: center;
   }
 }
 
