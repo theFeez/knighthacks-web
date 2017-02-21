@@ -17,7 +17,7 @@
     color: $theme;
   }
 
-  @media (max-device-width: 550px) {
+  @media (max-width: 550px) {
     .prompt, .command {
       display: none;
     }
