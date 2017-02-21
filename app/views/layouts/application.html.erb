@@ -12,7 +12,7 @@
   <body class="<%= content_for(:body_class) %>">
     <header role="main" class="<%= content_for(:header_class) %>">
       <div class="container">
-        <%= link_to image_tag(content_for(:header_logo) || "logo.png"), "/" %>
+        <%= link_to image_tag(content_for(:header_logo) || "logo.svg"), "/" %>
 
         <%= content_for(:header_content) %>
       </div>
