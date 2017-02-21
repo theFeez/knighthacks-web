@@ -1,7 +1,7 @@
 @import "../layouts";
 @import "../colors";
 
-header[role="main"].home {
+.home header[role="main"] {
   $stripe-clearance: 200px;
 
   position: relative;

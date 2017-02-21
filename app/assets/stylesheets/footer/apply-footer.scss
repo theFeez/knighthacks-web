@@ -1,0 +1,11 @@
+@import "../layouts";
+
+.page-apply footer[role="main"] {
+  padding-top: 40px;
+  opacity: 0.4;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+  .container {
+    width: $site-width * 0.8;
+  }
+}
