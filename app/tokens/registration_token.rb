@@ -1,10 +1,10 @@
 class RegistrationToken
-  attr_reader :user
+  attr_reader :registration
 
-  def self.user_for(token)
+  def self.registration_for(token)
     decoded, = JWT.decode(token, secret, algorithm)
 
-    User.find(decoded["sub"])
+    Registration.find(decoded["sub"])
   end
 
   def self.secret
@@ -15,11 +15,11 @@ class RegistrationToken
     "HS256"
   end
 
-  def initialize(user)
-    @user = user
+  def initialize(registration)
+    @registration = registration
   end
 
   def encoded
-    JWT.encode({ "sub" => user.id }, self.class.secret, self.class.algorithm)
+    JWT.encode({ "sub" => registration.id }, self.class.secret, self.class.algorithm)
   end
 end

@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219170852) do
+ActiveRecord::Schema.define(version: 20170220202832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "citext"
 
-  create_table "users", force: :cascade do |t|
+  create_table "registrations", force: :cascade do |t|
     t.string   "full_name"
     t.citext   "email"
     t.string   "phone"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170219170852) do
     t.string   "race"
     t.text     "roles",                        default: [],              array: true
     t.boolean  "reminded_to_finish_applying"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["email"], name: "index_registrations_on_email", unique: true, using: :btree
   end
 
 end

@@ -1,14 +1,14 @@
 class RemindUserToFinishApplyingWorker
   include Sidekiq::Worker
 
-  def perform(user_id)
+  def perform(registration_id)
     return unless should_remind_user?
 
-    user = User.find(user_id)
+    registration = Registration.find(registration_id)
 
-    User.transaction do
-      user.update(reminded_to_finish_applying: true)
-      UserMailer.remind_user_to_finish_applying_email(user).deliver_now
+    Registration.transaction do
+      registration.update(reminded_to_finish_applying: true)
+      RegistrationMailer.remind_registration_to_finish_applying_email(registration).deliver_now
     end
   end
 

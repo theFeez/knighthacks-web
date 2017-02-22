@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) || User.new
+  def current_registration
+    @current_registration ||= Registration.find_by(id: session[:registration_id]) || Registration.new
   end
-  helper_method :current_user
+  helper_method :current_registration
 end

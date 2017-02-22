@@ -13,17 +13,17 @@
     <p class="save_reassurance">
       Gotta run? No problem.
 
-      <% if current_user.reminded_to_finish_applying? %>
+      <% if current_registration.reminded_to_finish_applying? %>
         We've sent
       <% else %>
         We'll send
       <% end %>
 
-      an email to <%= current_user.email %> that'll let you pick up right where you left off.
+      an email to <%= current_registration.email %> that'll let you pick up right where you left off.
     </p>
   </nav>
 
-  <%= simple_form_for(current_user) do |f| %>
+  <%= simple_form_for(current_registration) do |f| %>
     <% @registration_form.current_section.attributes.each do |attribute| %>
       <% if attribute.is_a? Array %>
         <%= f.input attribute[0], attribute[1]  %>

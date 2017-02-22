@@ -6,12 +6,12 @@
   }
 
   const form = document.querySelector('form')
-  const userId = form.id.split('_')[2]
+  const registrationId = form.id.split('_')[2]
 
   form.addEventListener('change', function () {
     const formData = new FormData(form)
 
-    fetch("<%= users_path %>/" + userId, {
+    fetch(form.getAttribute('action'), {
       method: "PATCH",
       body: formData,
       credentials: 'same-origin',

@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   root to: "application#home"
 
-  get "apply/resume" => "users#resume_application", as: :apply_resume
-  get "apply/:section" => "users#edit", as: :apply
-  get "apply", to: redirect("apply/basic"), as: :apply_redirect
+  resources :registrations, only: %i(create)
+
+  get "apply/resume" => "registrations#resume", as: :resume_registration
+  get "apply/:section" => "registrations#edit", as: :apply
+  get "apply" => redirect("apply/resume")
+  resources :registrations
+
   get "countdown" => "countdowns#index"
-  resources :users
 
   mount Sidekiq::Web => "/sidekiq"
 end

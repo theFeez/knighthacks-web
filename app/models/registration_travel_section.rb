@@ -8,8 +8,8 @@ class RegistrationTravelSection < RegistrationSection
   end
 
   def completed?
-    user.traveling_from_city.present? &&
-      user.traveling_to_city.present?
+    registration.traveling_from_city.present? &&
+      registration.traveling_to_city.present?
   end
 
   def attributes

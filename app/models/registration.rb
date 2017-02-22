@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class Registration < ApplicationRecord
   ROLES = %w(hacker mentor volunteer).freeze
 
   validates :email, uniqueness: true, format: /\A\S+@\S+\z/

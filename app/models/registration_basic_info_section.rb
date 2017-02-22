@@ -1,10 +1,4 @@
 class RegistrationBasicInfoSection < RegistrationSection
-  attr_reader :user
-
-  def initialize(user)
-    @user = user
-  end
-
   def name
     "Basic info"
   end

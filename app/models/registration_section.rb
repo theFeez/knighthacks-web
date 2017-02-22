@@ -1,12 +1,12 @@
 class RegistrationSection
-  attr_reader :user
+  attr_reader :registration
 
-  def initialize(user)
-    @user = user
+  def initialize(registration)
+    @registration = registration
   end
 
   def completed?
-    flat_attributes.all? { |attribute| user.send(attribute).present? }
+    flat_attributes.all? { |attribute| registration.send(attribute).present? }
   end
 
   def attributes

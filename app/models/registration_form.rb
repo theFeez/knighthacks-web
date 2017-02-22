@@ -1,8 +1,8 @@
 class RegistrationForm
-  attr_reader :user, :current_section
+  attr_reader :registration, :current_section
 
-  def initialize(user, current_section)
-    @user = user
+  def initialize(registration, current_section)
+    @registration = registration
     @current_section = section_from_key(current_section)
   end
 
@@ -12,11 +12,11 @@ class RegistrationForm
       RegistrationRolesSection,
     ]
 
-    user.roles.each do |role|
+    registration.roles.each do |role|
       base += send("#{role}_sections")
     end
 
-    base.uniq.map { |klass| klass.new(user) }
+    base.uniq.map { |klass| klass.new(registration) }
   end
 
   def previous_section
