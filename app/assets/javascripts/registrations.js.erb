@@ -7,17 +7,38 @@
 
   const form = document.querySelector('form')
   const registrationId = form.id.split('_')[2]
+  const getSaveStatus = () => document.getElementById('save_status')
 
-  form.addEventListener('change', function () {
+  function update () {
+    showSavingIndicator()
+
     const formData = new FormData(form)
 
-    fetch(form.getAttribute('action'), {
+    const path = window.location.pathname.split('/')
+    const section = path[path.length - 1]
+
+    fetch(form.getAttribute('action') + '?section=' + section, {
       method: "PATCH",
       body: formData,
       credentials: 'same-origin',
       headers: new Headers({
-        "Accept": "application/json"
+        "Accept": "application/javascript"
       })
     })
+      .then(response => response.text())
+      .then(content => eval(content))
+  }
+
+  const debouncedUpdate = _.debounce(update, 500)
+
+  function showSavingIndicator () {
+    getSaveStatus().innerText = 'Saving...'
+  }
+
+  form.addEventListener('change', () => {
+    debouncedUpdate.cancel()
+    update()
   })
+
+  form.addEventListener('keydown', debouncedUpdate)
 })()

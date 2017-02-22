@@ -116,11 +116,17 @@
 .back_forward_buttons {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: linear-gradient(transparent, $secondary);
   padding-bottom: 20px;
 
   .button {
     background: white;
     color: $secondary;
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

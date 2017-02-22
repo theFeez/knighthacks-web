@@ -15,8 +15,9 @@ gem "sidekiq"
 gem "simple_form"
 gem "uglifier", ">= 1.3.0"
 
-gem "momentjs-rails"
 gem "fetch-rails"
+gem "lodash-rails"
+gem "momentjs-rails"
 gem "react-rails"
 
 group :development, :test do

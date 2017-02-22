@@ -21,10 +21,14 @@ class RegistrationsController < ApplicationController
   end
 
   def update
+    @registration_form = RegistrationForm.new(current_registration, params[:section])
+
+    respond_to :js
+
     if current_registration.update(registration_params)
-      render json: current_registration
+      render :update
     else
-      render json: current_registration.errors.details, status: :unprocessable_entity
+      render :update_error
     end
   end
 

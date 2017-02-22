@@ -1,0 +1,26 @@
+<% @registration_form.sections.each do |section| %>
+  <%=
+    link_to(
+      section.name,
+      apply_path(section.key),
+      class: [
+        section.key == @registration_form.current_section.key ? "current" : nil,
+        section.completed? ? "completed" : "incomplete",
+      ].join(" "),
+    )
+  %>
+<% end %>
+
+<p id="save_status" class="save_status">Saved.</p>
+
+<p class="save_reassurance">
+  Gotta run? No problem.
+
+  <% if current_registration.reminded_to_finish_applying? %>
+    We've sent
+  <% else %>
+    We'll send
+  <% end %>
+
+  an email to <%= current_registration.email %> that'll let you pick up right where you left off.
+</p>

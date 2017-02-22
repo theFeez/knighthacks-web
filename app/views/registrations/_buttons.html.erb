@@ -1,0 +1,22 @@
+<%=
+  link_to(
+    "Back",
+    apply_path(@registration_form.previous_section&.key || "basic"),
+    class: "button",
+    disabled: @registration_form.previous_section.blank?
+  )
+%>
+
+<%=
+  link_to(
+    apply_path(@registration_form.next_section&.key || @registration_form.sections.last.key),
+    class: "button",
+    disabled: @registration_form.next_section.blank?
+  ) do
+%>
+  <% if @registration_form.next_section %>
+    Next: <strong><%= @registration_form.next_section.name %></strong>
+  <% else %>
+    Next
+  <% end %>
+<% end %>

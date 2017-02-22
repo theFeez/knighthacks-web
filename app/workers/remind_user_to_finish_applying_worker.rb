@@ -8,7 +8,7 @@ class RemindUserToFinishApplyingWorker
 
     Registration.transaction do
       registration.update(reminded_to_finish_applying: true)
-      RegistrationMailer.remind_registration_to_finish_applying_email(registration).deliver_now
+      RegistrationMailer.remind_user_to_finish_applying_email(registration).deliver_now
     end
   end
 

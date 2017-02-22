@@ -5,22 +5,9 @@
   <nav class="apply_sections">
     <h2>Apply</h2>
 
-    <% @registration_form.sections.each do |section| %>
-      <%= registration_section_link(section) %>
-    <% end %>
-
-    <p class="save_status">Saved.</p>
-    <p class="save_reassurance">
-      Gotta run? No problem.
-
-      <% if current_registration.reminded_to_finish_applying? %>
-        We've sent
-      <% else %>
-        We'll send
-      <% end %>
-
-      an email to <%= current_registration.email %> that'll let you pick up right where you left off.
-    </p>
+    <div id="sidebar_wrapper">
+      <%= render "sidebar" %>
+    </div>
   </nav>
 
   <%= simple_form_for(current_registration) do |f| %>
@@ -32,16 +19,8 @@
       <% end %>
     <% end %>
 
-    <div class="back_forward_buttons">
-      <% if @registration_form.previous_section %>
-        <%= link_to "Back", apply_path(@registration_form.previous_section.key), class: "button" %>
-      <% end %>
-
-      <% if @registration_form.next_section %>
-        <%= link_to apply_path(@registration_form.next_section.key), class: "button" do %>
-          Next: <strong><%= @registration_form.next_section.name %></strong>
-        <% end %>
-      <% end %>
+    <div id="buttons_wrapper" class="back_forward_buttons">
+      <%= render "buttons" %>
     </div>
   <% end %>
 </div>
