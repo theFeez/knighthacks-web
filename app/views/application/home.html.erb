@@ -3,8 +3,7 @@
   <div class="countdown">
     <span class="prompt">$ </span>
     <span class="command">curl knighthacks.org/countdown</span>
-    <br />
-    <%= @countdown.hackathon_starts_at.strftime('%B %dth @ %I:%M%p') %>
+    <div class="date"><%= @countdown.hackathon_starts_at.strftime('%B %dth @ %I:%M%p') %></div>
     <%= react_component("Countdown", hackathonStartsAt: @countdown.hackathon_starts_at) %>
   </div>
 
