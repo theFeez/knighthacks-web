@@ -1,0 +1,27 @@
+@import "../colors";
+@import "../layouts";
+
+
+.sponsors {
+  position: relative;
+  padding: $section-gutter 0;
+  margin-top: 100px;
+
+  &:before {
+    content: "";
+    display: block;
+    height: 110%;
+    width: 100%;
+    position: absolute;
+    top: -2%;
+    transform: skewY(-7deg);
+  }
+
+  a {
+    color: black;
+
+    &:link:visited:hover:active {
+      color: inherit;
+    }
+  }
+}
