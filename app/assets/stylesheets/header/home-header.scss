@@ -5,7 +5,7 @@
   $stripe-clearance: 200px;
 
   position: relative;
-  padding-bottom: $stripe-clearance;
+  padding-bottom: $stripe-clearance + 100px;
   margin-bottom: -$stripe-clearance;
 
   &:before {
