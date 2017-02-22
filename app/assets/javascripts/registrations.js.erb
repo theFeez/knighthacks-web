@@ -5,9 +5,9 @@
     return
   }
 
-  const form = document.querySelector('form')
-  const registrationId = form.id.split('_')[2]
-  const getSaveStatus = () => document.getElementById('save_status')
+  var form = document.querySelector('form')
+  var registrationId = form.id.split('_')[2]
+  var getSaveStatus = function () { return document.getElementById('save_status') }
 
   function update () {
     showSavingIndicator()
@@ -25,8 +25,8 @@
         "Accept": "application/javascript"
       })
     })
-      .then(response => response.text())
-      .then(content => eval(content))
+      .then(function (response) { return response.text() })
+      .then(function (content) { eval(content) })
   }
 
   const debouncedUpdate = _.debounce(update, 500)
@@ -35,7 +35,7 @@
     getSaveStatus().innerText = 'Saving...'
   }
 
-  form.addEventListener('change', () => {
+  form.addEventListener('change', function () {
     debouncedUpdate.cancel()
     update()
   })
