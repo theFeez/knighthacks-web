@@ -9,11 +9,29 @@
   var getSaveStatus = function () { return document.getElementById('save_status') }
 
   function update (event) {
-    var container = document.querySelector('.' + event.target.id)
-    container && container.classList.add('dirty')
-
+    markFieldAsDirty(event.target.id)
     showSavingIndicator()
+    sendUpdate()
+  }
+  const debouncedUpdate = _.debounce(update, 500)
 
+  function markFieldAsDirty (fieldName) {
+    var container = document.querySelector('.' + fieldName)
+    container && container.classList.add('dirty')
+  }
+
+  function showSavingIndicator () {
+    getSaveStatus().innerText = 'Saving...'
+  }
+
+  form.addEventListener('change', function (event) {
+    debouncedUpdate.cancel()
+    update(event)
+  })
+
+  form.addEventListener('keydown', debouncedUpdate)
+
+  function sendUpdate () {
     const formData = new FormData(form)
 
     const path = window.location.pathname.split('/')
@@ -30,17 +48,4 @@
       .then(function (response) { return response.text() })
       .then(function (content) { eval(content) })
   }
-
-  const debouncedUpdate = _.debounce(update, 500)
-
-  function showSavingIndicator () {
-    getSaveStatus().innerText = 'Saving...'
-  }
-
-  form.addEventListener('change', function (event) {
-    debouncedUpdate.cancel()
-    update(event)
-  })
-
-  form.addEventListener('keydown', debouncedUpdate)
 })()
