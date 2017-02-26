@@ -31,10 +31,6 @@ class Registration < ApplicationRecord
     "#{shirt_fit_sex} #{shirt_fit_size}"
   end
 
-  def submitted?
-    submitted_at?
-  end
-
   # HACK figure out why simple_form generates hidden inputs with empty strings.
   def availability=(list)
     super list.select(&:present?)
