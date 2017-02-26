@@ -7,11 +7,6 @@ class RegistrationTravelSection < RegistrationSection
     "travel"
   end
 
-  def completed?
-    registration.traveling_from_city.present? &&
-      registration.traveling_to_city.present?
-  end
-
   def attributes
     [
       :traveling_from_city,

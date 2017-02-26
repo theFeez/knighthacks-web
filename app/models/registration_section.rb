@@ -6,7 +6,7 @@ class RegistrationSection
   end
 
   def completed?
-    flat_attributes.all? { |attribute| registration.send(attribute).present? }
+    (errors_without_validating_original.details.keys & flat_attributes).none?
   end
 
   def attributes
@@ -23,5 +23,11 @@ class RegistrationSection
         attribute
       end
     end
+  end
+
+  def errors_without_validating_original
+    new_reference = Registration.find(registration.id)
+    new_reference.validate
+    new_reference.errors
   end
 end

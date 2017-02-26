@@ -7,7 +7,7 @@ class RegistrationsController < ApplicationController
   def create
     @registration = Registration.new(registration_params)
 
-    if @registration.save
+    if @registration.save(validate: false)
       RemindUserToFinishApplyingWorker.perform_in(remind_user_in, @registration.id)
       session[:registration_id] = @registration.id
       redirect_to resume_registration_path
@@ -25,11 +25,9 @@ class RegistrationsController < ApplicationController
 
     respond_to :js
 
-    if current_registration.update(registration_params)
-      render :update
-    else
-      render :update_error
-    end
+    current_registration.assign_attributes(registration_params)
+    @errors = current_registration.tap(&:validate).errors
+    current_registration.save(validate: false)
   end
 
   def resume

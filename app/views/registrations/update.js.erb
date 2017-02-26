@@ -3,3 +3,23 @@ const buttons = document.getElementById('buttons_wrapper')
 
 sidebar.innerHTML = '<%= j render "sidebar" %>'
 buttons.innerHTML = '<%= j render "buttons" %>'
+
+const allErrors = document.querySelectorAll('.field_with_errors')
+
+for (let errorElement of allErrors) {
+  errorElement.classList.remove('field_with_errors')
+}
+
+<% @errors.messages.each do |error| %>
+  ;(function () {
+    const fieldWithError = document.querySelector('.registration_<%= error[0] %>')
+
+    if (fieldWithError) {
+      <% error[1].each do |message| %>
+        ;(function () {
+          fieldWithError.classList.add('field_with_errors')
+        })()
+      <% end %>
+    }
+  })()
+<% end %>

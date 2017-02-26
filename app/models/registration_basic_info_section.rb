@@ -9,8 +9,8 @@ class RegistrationBasicInfoSection < RegistrationSection
 
   def attributes
     [
-      :full_name,
-      [:email, { label: "Preferred e-mail", as: :email }],
+      [:full_name, disabled: true],
+      [:email, { label: "Preferred e-mail", as: :email, disabled: true }],
       [:phone, { label: "Preferred phone number" }],
       [:shirt_fit, { as: :shirt_fit }],
     ]

@@ -11,6 +11,15 @@
   %>
 <% end %>
 
+<%=
+  link_to(
+    "Submit Application",
+    "#",
+    disabled: !@registration_form.can_submit?,
+    class: "button"
+  )
+%>
+
 <p id="save_status" class="save_status">Saved.</p>
 
 <p class="save_reassurance">

@@ -6,6 +6,10 @@ class RegistrationForm
     @current_section = section_from_key(current_section)
   end
 
+  def can_submit?
+    sections.all?(&:completed?)
+  end
+
   def sections
     base = [
       RegistrationBasicInfoSection,

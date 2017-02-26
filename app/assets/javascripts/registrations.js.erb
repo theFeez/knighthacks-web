@@ -6,10 +6,12 @@
   }
 
   var form = document.querySelector('form')
-  var registrationId = form.id.split('_')[2]
   var getSaveStatus = function () { return document.getElementById('save_status') }
 
-  function update () {
+  function update (event) {
+    var container = document.querySelector('.' + event.target.id)
+    container && container.classList.add('dirty')
+
     showSavingIndicator()
 
     const formData = new FormData(form)
@@ -35,9 +37,9 @@
     getSaveStatus().innerText = 'Saving...'
   }
 
-  form.addEventListener('change', function () {
+  form.addEventListener('change', function (event) {
     debouncedUpdate.cancel()
-    update()
+    update(event)
   })
 
   form.addEventListener('keydown', debouncedUpdate)
